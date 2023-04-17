@@ -53,17 +53,25 @@
         <textarea id="message" name="message"></textarea><br><br>
 
         <button type="submit" onclick="saveData()">Submit</button>
+        <button id="clear" onclick="Clear()">Xóa Data</button>
     </form>
+
 
     <script>
         function saveData() {
             var name = document.getElementById("name").value;
             var email = document.getElementById("email").value;
             var message = document.getElementById("message").value;
-
             localStorage.setItem("name", name);
             localStorage.setItem("email", email);
             localStorage.setItem("message", message);
+
+            document.querySelector('form').addEventListener('click', (e) => {
+                e.preventDefault();
+            })
+        }
+        function Clear() {
+            localStorage.clear();
         }
 
     </script>
